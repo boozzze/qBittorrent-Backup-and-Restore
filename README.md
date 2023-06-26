@@ -1,17 +1,12 @@
-因为使用bat批处理文件后缀容易让一部分使用者担心脚本中包含恶意代码，所以将脚本的扩展名修改为txt以尽可能避免意外执行。
-使用者可以自行查看脚本中的代码指令，以确保脚本没有恶意行为。
+Because using the .bat file extension can make some users concerned about potential malicious code in the script, the file extension of the script has been changed to .txt to minimize the risk of accidental execution. Users can review the code instructions in the script to ensure that the script does not have any malicious behavior.
 
+Instructions:
+1. Change the file extension of both "Backup.txt" and "Restore.txt" files from .txt to .bat (If your system is set to hide file extensions, please search "how to show file extensions" on the internet).
 
-## 使用方式：
-1、将Backup.txt和Restore.txt两个文件的扩展名由txt改为bat
-（系统设置隐藏了文件扩展名的请百度“如何显示文件扩展名”）
+2. Double-click on "Backup.bat" to backup the configuration and torrents of transmission to the "Backup" folder in the current directory. If there is an existing old backup, it will be renamed to "Backup.old". Older backups will be deleted, so the script will retain a maximum of two backup sets.
 
-2、双击执行Backup.bat，即可将transmission的配置及种子备份到当前目录下的Backup文件夹中；
-如果已有旧的Backup备份，则会将旧备份重新更名为Backup.old；再久远的备份则会被删除，
-即脚本最多只会保留两次备份的文件。
+3. Double-click on "Restore.bat". If a backup exists in the "Backup" folder, it will be restored from there. Otherwise, it will check if there is a backup in the "Backup.old" folder, and if found, it will restore from there. If neither backup is available, it will display a message stating that no backup is available and exit.
 
-3、双击执行Restore.bat，如果有Backup备份，则会优先从Backup中还原；否则再去查找是否有
-Backup.old备份，如果有则从Backup.old中还原；如果两个备份都没有，则会提示没有可用的备份
-并退出。
+4. The main difference from the original version is that all instances of "xcopy" have been replaced with the "RoboCopy" command. Personal testing has shown that the "RoboCopy" command is more stable.
 
-4.跟原版的差别就是把所有的xcopy都换成了RoboCopy命令。个人测试RoboCopy命令更加稳定。
+Please note that the translation provided above is for the instructions and explanations provided in the text. The actual commands and code within the script remain the same.
